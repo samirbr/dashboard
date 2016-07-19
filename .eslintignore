@@ -1,0 +1,7 @@
+dist/
+docs/
+gulp/
+.esdoc.json
+gulpfile.js
+karma.conf.js
+package.json

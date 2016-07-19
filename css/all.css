@@ -1,0 +1,9 @@
+.widget {
+  width: 100%;
+  height: 250px;
+}
+
+.katex {
+  font: 400 1.8em KaTeX_Main !important;
+  line-height: 250px !important;
+}

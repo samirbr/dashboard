@@ -1,0 +1,13 @@
+<template>
+  <div class="container">
+    <div class="row" responsive="{ gutter: 10, columnWidth: 200, itemSelector: '.col-md-4' }">
+      <div class="col-md-4" repeat.for="slot of slots" droppable="{ drop: drop, accept: '.widget' }"
+         responsive="{ columnWidth: 200, itemSelector: 'widget' }">
+        <div class="widget" repeat.for="widget of slot.widgets"
+          dragabble="{ drag: drag, revert: 'invalid' }" sortable="{ sort: sort }">
+          <compose view-model="./widgets/${widget.module}" model.bind="widget.config"></compose>
+        </div>
+      </div>
+    </div>
+  </div>  
+</template>

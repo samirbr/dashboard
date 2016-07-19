@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <base href="http://localhost:9000"> -->
+    <title>LEGACY</title>
+    <meta charset="utf-8">
+    <meta name="ga" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="static/humans.txt" rel="author" type="text/plain">
+    <link href="static/manifest.json" rel="manifest">
+
+    <link href="static/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
+    <link href="static/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
+    <link href="static/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
+    <link href="static/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="static/favicon.ico" rel="icon" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700,300" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet" type="text/css">
+    <link href="css/all.css" rel="stylesheet" type="text/css">
+  </head>
+  <body aurelia-app="main">
+    <div class="splash">
+      <div class="message">Loading ...</div>
+      <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    <script src="jspm_packages/system.src.js"></script>
+    <script src="config.js"></script>
+    <script>
+      SystemJS.import('aurelia-bootstrapper');
+    </script>
+  </body>
+</html>
