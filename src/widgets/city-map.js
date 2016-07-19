@@ -17,7 +17,9 @@ export class CityMap extends Container {
     return `${MAPBOX_URL}?access_token=${this.token}`;
   }
 
-  bind() {
+  attached() {
+    super.attached();
+    
     let map = L.map(this.map)
       .setView([this.config.lat, this.config.lng], this.config.zoom);
 
@@ -28,7 +30,5 @@ export class CityMap extends Container {
 				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 			id: 'mapbox.streets'
 		}).addTo(map);
-
-    super.bind();
   }
 }

@@ -1,23 +1,16 @@
 import {customAttribute, inject} from 'aurelia-framework';
-import $ from 'jquery';
-import 'mansory';
+import Masonry from 'masonry-layout';
 
-@customAttribute('draggable')
+@customAttribute('responsive')
 @inject(Element)
-export class Draggable {
+export class Responsive {
   constructor(element) {
     this.element = element;
   }
 
-  bind() {
-    $(this.element).masonry();
-  }
-
-  unbind() {
-    $(this.element).masonry('destroy');
-  }
-
   valueChanged(options) {
-    $(this.element).masonry(options);
+    // const masonry = new Masonry(this.element, options);
+    // masonry.once('layoutComplete', () => {});
+    // masonry.layout();
   }
 }

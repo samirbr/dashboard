@@ -30,7 +30,7 @@
       "json": "github:systemjs/plugin-json@^0.1.2",
       "katex": "github:Khan/KaTeX@^0.6.0",
       "leaflet": "github:Leaflet/Leaflet@^0.7.7",
-      "masonry": "github:desandro/masonry@^4.1.0",
+      "masonry-layout": "npm:masonry-layout@^4.1.0",
       "text": "github:systemjs/plugin-text@^0.0.8",
       "yaml": "github:samirbr/plugin-yaml@master"
     },

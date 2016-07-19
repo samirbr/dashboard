@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-framework', '../container', 'aurelia-fetch-client', '../application-state'], function (_export, _context) {
+System.register(['aurelia-framework', '../container', 'aurelia-fetch-client', '../application-state', '../util'], function (_export, _context) {
   "use strict";
 
-  var inject, TaskQueue, Container, HttpClient, ApplicationState, _dec, _class, QUANDL_PEC_URL, Chart;
+  var inject, TaskQueue, Container, HttpClient, ApplicationState, script, _dec, _class, QUANDL_PEC_URL, Chart;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -45,6 +45,8 @@ System.register(['aurelia-framework', '../container', 'aurelia-fetch-client', '.
       HttpClient = _aureliaFetchClient.HttpClient;
     }, function (_applicationState) {
       ApplicationState = _applicationState.ApplicationState;
+    }, function (_util) {
+      script = _util.script;
     }],
     execute: function () {
       QUANDL_PEC_URL = 'https://www.quandl.com/api/v3/datasets/';
@@ -105,10 +107,24 @@ System.register(['aurelia-framework', '../container', 'aurelia-fetch-client', '.
           });
 
           this.taskQueue.queueMicroTask(function () {
+            var self = _this2;
+
             http.fetch('' + QUANDL_PEC_URL + _this2.config.series + '?api_key=' + _this2.token).then(function (response) {
               return response.json();
             }).then(function (data) {
-              ApplicationState.loadExternal().then(function () {
+              script('https://www.gstatic.com/charts/loader.js').then(function () {
+                return new Promise(function (resolve, reject) {
+                  if (!self.loaded) {
+                    google.charts.load('current', { packages: ['corechart', 'line'] });
+                    google.charts.setOnLoadCallback(function () {
+                      self.loaded = true;
+                      resolve();
+                    });
+                  } else {
+                    setTimeout(resolve);
+                  }
+                });
+              }).then(function () {
                 _this2.draw(data.dataset);
               });
             });

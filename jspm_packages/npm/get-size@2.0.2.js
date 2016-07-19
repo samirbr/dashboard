@@ -1,0 +1,1 @@
+module.exports = require("npm:get-size@2.0.2/get-size");

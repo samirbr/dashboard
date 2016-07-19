@@ -9,10 +9,6 @@ export class Draggable {
     this.element = element;
   }
 
-  bind() {
-    $(this.element).draggable();
-  }
-
   unbind() {
     $(this.element).draggable('destroy');
   }

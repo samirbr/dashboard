@@ -3,7 +3,7 @@
 System.register(['util'], function (_export, _context) {
   "use strict";
 
-  var script, _class, _temp, ApplicationState;
+  var script, ApplicationState;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -16,7 +16,7 @@ System.register(['util'], function (_export, _context) {
       script = _util.script;
     }],
     execute: function () {
-      _export('ApplicationState', ApplicationState = (_temp = _class = function () {
+      _export('ApplicationState', ApplicationState = function () {
         function ApplicationState() {
           _classCallCheck(this, ApplicationState);
         }
@@ -25,27 +25,8 @@ System.register(['util'], function (_export, _context) {
           this[key] = value;
         };
 
-        ApplicationState.loadExternal = function loadExternal() {
-          var _this = this;
-
-          return script('https://www.gstatic.com/charts/loader.js').then(function () {
-            return new Promise(function (resolve, reject) {
-              if (!_this.loaded) {
-
-                google.charts.load('current', { packages: ['corechart', 'line'] });
-                google.charts.setOnLoadCallback(function () {
-                  _this.loaded = true;
-                  resolve();
-                });
-              } else {
-                setTimeout(resolve);
-              }
-            });
-          });
-        };
-
         return ApplicationState;
-      }(), _class.loaded = false, _temp));
+      }());
 
       _export('ApplicationState', ApplicationState);
     }

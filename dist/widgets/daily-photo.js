@@ -3,7 +3,7 @@
 System.register(['aurelia-fetch-client', 'aurelia-framework', '../container'], function (_export, _context) {
   "use strict";
 
-  var HttpClient, inject, Container, _dec, _class, APOD_URL, DailyPhoto;
+  var HttpClient, inject, Container, _dec, _class, APOD_URL, CROSSORINME_URL, DailyPhoto;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -45,6 +45,7 @@ System.register(['aurelia-fetch-client', 'aurelia-framework', '../container'], f
     }],
     execute: function () {
       APOD_URL = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
+      CROSSORINME_URL = 'https://crossorigin.me/';
 
       _export('DailyPhoto', DailyPhoto = (_dec = inject(Element), _dec(_class = function (_Container) {
         _inherits(DailyPhoto, _Container);
@@ -79,9 +80,9 @@ System.register(['aurelia-fetch-client', 'aurelia-framework', '../container'], f
           http.fetch(APOD_URL).then(function (response) {
             return response.json();
           }).then(function (data) {
-            _this2.url = data.url;
+            _this2.url = '' + CROSSORINME_URL + data.url;
             _this2.title = data.title;
-            _this2.hdurl = data.hdurl;
+            _this2.hdurl = '' + CROSSORINME_URL + data.hdurl;
 
             _this2.toUri(_this2.url).then(function (data) {
               _this2.data = data;
@@ -99,9 +100,9 @@ System.register(['aurelia-fetch-client', 'aurelia-framework', '../container'], f
               var canvas = document.createElement('canvas');
               var context = canvas.getContext('2d');
               canvas.width = self.width;
-              canvas.height = canvas.width * (this.naturalHeight / this.naturalWidth);
+              canvas.height = this.height * (self.width / this.width);
 
-              context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, canvas.width, canvas.height);
+              context.drawImage(this, 0, 0, this.width, this.height, 0, 0, canvas.width, canvas.height);
 
               resolve(canvas.toDataURL('image/png'));
             };

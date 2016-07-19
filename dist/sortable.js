@@ -26,16 +26,12 @@ System.register(['aurelia-framework', 'jquery', 'jquery-ui'], function (_export,
           this.element = element;
         }
 
-        Sortable.prototype.bind = function bind() {
-          $(this.element).sortable();
-        };
-
         Sortable.prototype.unbind = function unbind() {
           $(this.element).sortable('destroy');
         };
 
         Sortable.prototype.valueChanged = function valueChanged(options) {
-          $(this.element).sortable(options);
+          $(this.element).sortable(options).disableSelection();
         };
 
         return Sortable;

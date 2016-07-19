@@ -26,10 +26,6 @@ System.register(['aurelia-framework', 'jquery', 'jquery-ui'], function (_export,
           this.element = element;
         }
 
-        Droppable.prototype.bind = function bind() {
-          $(this.element).droppable();
-        };
-
         Droppable.prototype.unbind = function unbind() {
           $(this.element).droppable('destroy');
         };

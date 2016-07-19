@@ -1,9 +1,25 @@
-.widget {
+.bg {
+  background-color: #7CB342;
+  margin: 20px;
+}
+
+.ui-droppable {
+  height: auto !important;
+}
+
+.widget-body {
   width: 100%;
-  height: 250px;
+  min-height: 250px;
 }
 
 .katex {
   font: 400 1.8em KaTeX_Main !important;
   line-height: 250px !important;
+}
+
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7,
+.col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .inline {
+  float: none !important;
+  display: inline-block;
+  vertical-align: top;
 }

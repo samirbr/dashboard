@@ -9,15 +9,12 @@ export class Sortable {
     this.element = element;
   }
 
-  bind() {
-    $(this.element).sortable();
-  }
-
   unbind() {
     $(this.element).sortable('destroy');
   }
 
   valueChanged(options) {
-    $(this.element).sortable(options);
+    $(this.element).sortable(options)
+      .disableSelection();
   }
 }

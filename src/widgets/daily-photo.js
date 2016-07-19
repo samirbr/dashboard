@@ -3,6 +3,7 @@ import {inject} from 'aurelia-framework';
 import {Container} from '../container';
 
 const APOD_URL = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
+const CROSSORINME_URL = 'https://crossorigin.me/';
 
 @inject(Element)
 export class DailyPhoto extends Container {
@@ -28,9 +29,9 @@ export class DailyPhoto extends Container {
         return response.json();
       })
       .then((data) => {
-        this.url = data.url;
+        this.url = `${CROSSORINME_URL}${data.url}`;
         this.title = data.title;
-        this.hdurl = data.hdurl;
+        this.hdurl = `${CROSSORINME_URL}${data.hdurl}`;
 
         this.toUri(this.url)
           .then((data) => {
@@ -49,9 +50,9 @@ export class DailyPhoto extends Container {
         let canvas = document.createElement('canvas');
         let context = canvas.getContext('2d');
         canvas.width = self.width;
-        canvas.height = canvas.width * (this.naturalHeight / this.naturalWidth);
+        canvas.height = this.height * (self.width / this.width);
 
-        context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth,
+        context.drawImage(this, 0, 0, this.width, this.height,
         0, 0, canvas.width, canvas.height);
 
         // Get raw image data

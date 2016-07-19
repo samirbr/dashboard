@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-framework', '../container'], function (_export, _context) {
+System.register(['aurelia-framework', '../container', '../util'], function (_export, _context) {
   "use strict";
 
-  var inject, Container, _dec, _class, Stock;
+  var inject, Container, script, _dec, _class, Stock;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -40,6 +40,8 @@ System.register(['aurelia-framework', '../container'], function (_export, _conte
       inject = _aureliaFramework.inject;
     }, function (_container) {
       Container = _container.Container;
+    }, function (_util) {
+      script = _util.script;
     }],
     execute: function () {
       _export('Stock', Stock = (_dec = inject(Element), _dec(_class = function (_Container) {
@@ -50,6 +52,39 @@ System.register(['aurelia-framework', '../container'], function (_export, _conte
 
           return _possibleConstructorReturn(this, _Container.apply(this, arguments));
         }
+
+        Stock.prototype.attached = function attached() {
+          var self = this;
+
+          script('https://d33t3vvu2t2yu5.cloudfront.net/tv.js').then(function () {
+            TradingView.gEl = function (element) {
+              if (typeof element === 'string') {
+                element = document.getElementById(element);
+              }
+
+              return element;
+            };
+
+            new TradingView.MiniWidget({
+              "width": self.width,
+              "height": self.height,
+              "symbol": self.config.symbol,
+              "interval": "D",
+              "timezone": "Etc/UTC",
+              "theme": "White",
+              "style": "1",
+              "locale": "en",
+              "toolbar_bg": "#f1f3f6",
+              "allow_symbol_change": true,
+              "hideideas": true,
+              "show_popup_button": true,
+              "popup_width": "1000",
+              "popup_height": "650",
+              "no_referral_id": true,
+              "container_id": self.stock
+            });
+          });
+        };
 
         return Stock;
       }(Container)) || _class));

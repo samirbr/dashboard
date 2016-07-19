@@ -2,6 +2,7 @@ import {inject, TaskQueue} from 'aurelia-framework';
 import {Container} from '../container';
 import {HttpClient} from 'aurelia-fetch-client';
 import {ApplicationState} from '../application-state';
+import {script} from '../util';
 
 const QUANDL_PEC_URL = 'https://www.quandl.com/api/v3/datasets/';
 
@@ -55,12 +56,27 @@ export class Chart extends Container {
     });
 
     this.taskQueue.queueMicroTask(() => {
+      let self = this;
+
       http.fetch(`${QUANDL_PEC_URL}${this.config.series}?api_key=${this.token}`)
         .then((response) => {
           return response.json();
         })
         .then((data) => {
-          ApplicationState.loadExternal()
+          script('https://www.gstatic.com/charts/loader.js')
+            .then(() => {
+              return new Promise((resolve, reject) => {
+                if (!self.loaded) {
+                  google.charts.load('current', {packages: ['corechart', 'line']});
+                  google.charts.setOnLoadCallback(() => {
+                    self.loaded = true;
+                    resolve();
+                  });
+                } else {
+                  setTimeout(resolve);
+                }
+              });
+            })
             .then(() => {
               this.draw(data.dataset);
             });

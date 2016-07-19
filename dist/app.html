@@ -1,13 +1,26 @@
 <template>
+  <require from="./draggable"></require>
+  <require from="./droppable"></require>
+  <require from="./sortable"></require>
+  <require from="./responsive"></require>
   <div class="container">
-    <div class="row" responsive="{ gutter: 10, columnWidth: 200, itemSelector: '.col-md-4' }">
-      <div class="col-md-4" repeat.for="slot of slots" droppable="{ drop: drop, accept: '.widget' }"
-         responsive="{ columnWidth: 200, itemSelector: 'widget' }">
-        <div class="widget" repeat.for="widget of slot.widgets"
-          dragabble="{ drag: drag, revert: 'invalid' }" sortable="{ sort: sort }">
-          <compose view-model="./widgets/${widget.module}" model.bind="widget.config"></compose>
+    <div class="row" responsive.bind="{ gutter: 5, columnWidth: 200, itemSelector: '.col-md-4' }">
+      <div class="col-md-4" repeat.for="slot of slots"
+        sortable.bind="{ sort: sort, connectWith: '.col-md-4', handle: '.panel-heading', cancel: '.panel-body' }"
+        responsive.bind="{ columnWidth: 200, itemSelector: 'widget' }">
+        <!-- droppable.bind="{ drop: drop, accept: '.widget' }" -->
+        <!-- draggable.bind="{ drag: drag, revert: 'invalid', handle: '.panel-heading' }" -->
+        <div class="panel panel-default widget" repeat.for="widget of slot.widgets">
+          <div class="panel-heading">
+            <h3 class="panel-title"></h3>
+          </div>
+          <div class="panel-body">
+            <div class="widget-body">
+              <compose view-model="./widgets/${widget.module}" model.bind="widget.config"></compose>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>  
+  </div>
 </template>

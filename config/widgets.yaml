@@ -1,0 +1,48 @@
+global:
+  tokens:
+    google: AIzaSyDrydbFucBqn-noWSZd2TQd3lCrwxZ1RUY
+    mapbox: pk.eyJ1Ijoic2FtaXJ2c21hY2hpbmUiLCJhIjoiQmhYZndSYyJ9._yxbNgpSb5G3RY_-oilnsA
+    quandl: rHmhDhTXEeC9nUj6V1L2
+slots:
+  - widgets:
+    - module: weather
+      config:
+        lat: 37.2582
+        lng: -121.8303
+        name: San Jose
+
+    - module: city-map
+      config:
+        lat: 37.2582
+        lng: -121.8303
+        zoom: 13
+
+    - module: html-content
+      config:
+        url: http://samir.zillie.io/
+
+  - widgets:
+    - module: equation
+      config:
+        formula: f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+
+    - module: stock
+      config:
+        symbol: NASDAQ:GOOGL
+
+    - module: daily-quote
+      config: No
+
+  - widgets:
+    - module: chart
+      config:
+        series: OPEC/ORB
+
+    - module: clock
+      config:
+        color: FFFFFF
+        city: New York
+        state: NY
+
+    - module: daily-photo
+      config: No

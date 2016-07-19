@@ -78,7 +78,9 @@ System.register(['aurelia-framework', '../container', '../application-state', 'l
           return _this;
         }
 
-        CityMap.prototype.bind = function bind() {
+        CityMap.prototype.attached = function attached() {
+          _Container.prototype.attached.call(this);
+
           var map = L.map(this.map).setView([this.config.lat, this.config.lng], this.config.zoom);
 
           L.tileLayer(this.url, {
@@ -86,8 +88,6 @@ System.register(['aurelia-framework', '../container', '../application-state', 'l
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 'Imagery © <a href="http://mapbox.com">Mapbox</a>',
             id: 'mapbox.streets'
           }).addTo(map);
-
-          _Container.prototype.bind.call(this);
         };
 
         _createClass(CityMap, [{

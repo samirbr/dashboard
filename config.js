@@ -39,7 +39,7 @@ System.config({
     "json": "github:systemjs/plugin-json@0.1.2",
     "katex": "github:Khan/KaTeX@0.6.0",
     "leaflet": "github:Leaflet/Leaflet@0.7.7",
-    "masonry": "github:desandro/masonry@4.1.0",
+    "masonry-layout": "npm:masonry-layout@4.1.0",
     "pictonic": "github:samirbr/pictonic-for-jspm@master",
     "text": "github:systemjs/plugin-text@0.0.8",
     "yaml": "github:samirbr/plugin-yaml@master",
@@ -212,6 +212,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
+    "npm:fizzy-ui-utils@2.0.2": {
+      "desandro-matches-selector": "npm:desandro-matches-selector@2.0.1"
+    },
     "npm:font-awesome@4.5.0": {
       "css": "github:systemjs/plugin-css@0.1.20"
     },
@@ -220,6 +223,17 @@ System.config({
     },
     "npm:jquery@3.1.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:masonry-layout@4.1.0": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "get-size": "npm:get-size@2.0.2",
+      "outlayer": "npm:outlayer@2.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:outlayer@2.1.0": {
+      "ev-emitter": "npm:ev-emitter@1.0.3",
+      "fizzy-ui-utils": "npm:fizzy-ui-utils@2.0.2",
+      "get-size": "npm:get-size@2.0.2"
     },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"

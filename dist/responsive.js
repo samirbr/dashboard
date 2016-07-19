@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-framework', 'jquery', 'mansory'], function (_export, _context) {
+System.register(['aurelia-framework', 'masonry-layout'], function (_export, _context) {
   "use strict";
 
-  var customAttribute, inject, $, _dec, _dec2, _class, Draggable;
+  var customAttribute, inject, Masonry, _dec, _dec2, _class, Responsive;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -15,33 +15,23 @@ System.register(['aurelia-framework', 'jquery', 'mansory'], function (_export, _
     setters: [function (_aureliaFramework) {
       customAttribute = _aureliaFramework.customAttribute;
       inject = _aureliaFramework.inject;
-    }, function (_jquery) {
-      $ = _jquery.default;
-    }, function (_mansory) {}],
+    }, function (_masonryLayout) {
+      Masonry = _masonryLayout.default;
+    }],
     execute: function () {
-      _export('Draggable', Draggable = (_dec = customAttribute('draggable'), _dec2 = inject(Element), _dec(_class = _dec2(_class = function () {
-        function Draggable(element) {
-          _classCallCheck(this, Draggable);
+      _export('Responsive', Responsive = (_dec = customAttribute('responsive'), _dec2 = inject(Element), _dec(_class = _dec2(_class = function () {
+        function Responsive(element) {
+          _classCallCheck(this, Responsive);
 
           this.element = element;
         }
 
-        Draggable.prototype.bind = function bind() {
-          $(this.element).masonry();
-        };
+        Responsive.prototype.valueChanged = function valueChanged(options) {};
 
-        Draggable.prototype.unbind = function unbind() {
-          $(this.element).masonry('destroy');
-        };
-
-        Draggable.prototype.valueChanged = function valueChanged(options) {
-          $(this.element).masonry(options);
-        };
-
-        return Draggable;
+        return Responsive;
       }()) || _class) || _class));
 
-      _export('Draggable', Draggable);
+      _export('Responsive', Responsive);
     }
   };
 });

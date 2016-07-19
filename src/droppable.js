@@ -9,10 +9,6 @@ export class Droppable {
     this.element = element;
   }
 
-  bind() {
-    $(this.element).droppable();
-  }
-
   unbind() {
     $(this.element).droppable('destroy');
   }

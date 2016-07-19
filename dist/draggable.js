@@ -26,10 +26,6 @@ System.register(['aurelia-framework', 'jquery', 'jquery-ui'], function (_export,
           this.element = element;
         }
 
-        Draggable.prototype.bind = function bind() {
-          $(this.element).draggable();
-        };
-
         Draggable.prototype.unbind = function unbind() {
           $(this.element).draggable('destroy');
         };

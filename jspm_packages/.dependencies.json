@@ -210,9 +210,25 @@
   "github:components/jqueryui@1.12.0": {
     "jquery": "jspm:jquery"
   },
-  "github:desandro/masonry@4.1.0": {},
   "github:Leaflet/Leaflet@0.7.7": {},
   "github:nodeca/js-yaml@3.6.1": {},
   "github:samirbr/plugin-yaml@master": {},
-  "github:Khan/KaTeX@0.6.0": {}
+  "github:Khan/KaTeX@0.6.0": {},
+  "npm:get-size@2.0.2": {},
+  "npm:masonry-layout@4.1.0": {
+    "get-size": "npm:get-size@^2.0.2",
+    "outlayer": "npm:outlayer@^2.1.0",
+    "fs": "github:jspm/nodelibs-fs@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0"
+  },
+  "npm:ev-emitter@1.0.3": {},
+  "npm:desandro-matches-selector@2.0.1": {},
+  "npm:fizzy-ui-utils@2.0.2": {
+    "desandro-matches-selector": "npm:desandro-matches-selector@~2.0.0"
+  },
+  "npm:outlayer@2.1.0": {
+    "ev-emitter": "npm:ev-emitter@^1.0.0",
+    "get-size": "npm:get-size@^2.0.2",
+    "fizzy-ui-utils": "npm:fizzy-ui-utils@^2.0.0"
+  }
 }
