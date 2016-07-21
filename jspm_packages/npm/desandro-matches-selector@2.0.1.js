@@ -1,1 +1,0 @@
-module.exports = require("npm:desandro-matches-selector@2.0.1/matches-selector");

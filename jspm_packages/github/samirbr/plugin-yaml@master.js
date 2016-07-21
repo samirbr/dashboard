@@ -1,1 +1,0 @@
-module.exports = require("github:samirbr/plugin-yaml@master/yaml");
