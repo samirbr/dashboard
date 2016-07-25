@@ -252,7 +252,7 @@ System.config({
     }
   },
   bundles: {
-    "dist/app-build.js": [
+    "../dist/app-build.js": [
       "app.html!github:systemjs/plugin-text@0.0.8.js",
       "app.js",
       "application-state.js",
@@ -282,7 +282,7 @@ System.config({
       "widgets/weather.html!github:systemjs/plugin-text@0.0.8.js",
       "widgets/weather.js"
     ],
-    "dist/app-vendor.js": [
+    "../dist/app-vendor.js": [
       "github:github/fetch@0.10.1.js",
       "github:github/fetch@0.10.1/fetch.js",
       "github:jspm/nodelibs-process@0.1.2.js",
