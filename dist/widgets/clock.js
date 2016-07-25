@@ -76,6 +76,9 @@ System.register(['aurelia-framework', 'aurelia-fetch-client', '../container', '.
         Clock.prototype.bind = function bind() {
           var _this2 = this;
 
+          var city = 'San Jose';
+          var state = 'CA';
+
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
               var _position$coords = position.coords;
@@ -91,9 +94,6 @@ System.register(['aurelia-framework', 'aurelia-fetch-client', '../container', '.
                 return response.json();
               }).then(function (data) {
                 if (data.status === 'OK') {
-                  var city = void 0;
-                  var state = void 0;
-
                   data.results[0].address_components.forEach(function (component) {
                     if (component.types.every(function (type) {
                       return ['political', 'locality'].indexOf(type) !== -1;
@@ -111,7 +111,11 @@ System.register(['aurelia-framework', 'aurelia-fetch-client', '../container', '.
                   _this2.local = _this2.getUrl(city, state);
                 }
               });
+            }, function (error) {
+              _this2.local = _this2.getUrl(city, state);
             });
+          } else {
+            this.local = this.getUrl(city, state);
           }
         };
 

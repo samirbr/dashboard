@@ -28,6 +28,9 @@ export class Clock extends Container {
   }
 
   bind() {
+    let city = 'San Jose';
+    let state = 'CA';
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         let { latitude, longitude } = position.coords;
@@ -42,9 +45,6 @@ export class Clock extends Container {
           })
           .then((data) => {
             if (data.status === 'OK') {
-              let city;
-              let state;
-
               data.results[0].address_components.forEach((component) => {
                 if (component.types.every((type) => {
                   return ['political', 'locality'].indexOf(type) !== -1;
@@ -62,7 +62,11 @@ export class Clock extends Container {
               this.local = this.getUrl(city, state);
             }
           });
+      }, (error) => {
+        this.local = this.getUrl(city, state);
       });
+    } else {
+      this.local = this.getUrl(city, state);
     }
   }
 }
