@@ -31,7 +31,7 @@ System.register(['aurelia-framework', 'jquery', 'jquery-ui'], function (_export,
         };
 
         Sortable.prototype.valueChanged = function valueChanged(options) {
-          $(this.element).sortable(options).disableSelection();
+          $(this.element).sortable(options);
         };
 
         return Sortable;

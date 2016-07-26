@@ -14,7 +14,6 @@ export class Sortable {
   }
 
   valueChanged(options) {
-    $(this.element).sortable(options)
-      .disableSelection();
+    $(this.element).sortable(options);
   }
 }
