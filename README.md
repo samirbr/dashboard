@@ -1,4 +1,4 @@
-# Test 1
+# Dashboard 
 This project is built in Aurelia, a next-generation Javascript framework, and uses ECMA Script 6 features as decorators.
 The project is coded using ECMA Script 6 and transpiled with Babel to ECMA Script 5. The widget configurations are loaded from a YAML file.
 
@@ -46,8 +46,8 @@ sudo npm install -g jspm@0.16.15 gulp@3.8.11
 * In a terminal clone and install dependencies.
 
 ```
-clone git@bitbucket.org:samirvsmachine/merlin-test1.git
-cd merlin-test1
+clone git@github.com:samirbr/dashboard.git
+cd dashboard
 npm install
 jspm install
 ```
@@ -59,3 +59,4 @@ gulp watch
 ```
 
 * Navigate to localhost:9000.
+
